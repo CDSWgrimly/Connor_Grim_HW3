@@ -91,18 +91,19 @@ public class StoutList<E extends Comparable<? super E>> extends AbstractSequenti
   @Override
   public boolean add(E item)
   {
-    // TODO Auto-generated method stub
 	if (item == null) {
 		throw new NullPointerException();
 	}
-	
+
 	if (size == 0) {
+        //Creates node linking to head and tail if there are no nodes
 		Node n = new Node();
 		n.addItem(item);
 		n.next = tail;
 		n.previous = head;
 		size++;
 	} else {
+        //Creates node between last node and tail
 		if (tail.previous.count < nodeSize) {
 			tail.previous.addItem(item);
 		} else {
